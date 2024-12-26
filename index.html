@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* Basic Styles for the Page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* To-Do List Title */
+        .todo-title {
+            font-size: 36px;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        /* Left Side (To-Do List Input) */
+        .input-section {
+            flex: 1;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #e9f7e9;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .input-section input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid green;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .input-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-section button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+
+        /* Right Side (To-Do List Display) */
+        .todo-list {
+            flex: 2;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid red;
+            border-radius: 8px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: 400px;
+        }
+
+        .todo-item {
+            background-color: #e9f7e9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .input-section {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .todo-list {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section (Input Area) -->
+        <div class="input-section">
+            <div class="todo-title">To-Do List</div>
+            <input id="todoInput" type="text" placeholder="Enter a task" maxlength="30">
+            <button id="submitButton" onclick="addTodo()" disabled>Submit</button>
+        </div>
+
+        <!-- Right Section (To-Do List Display) -->
+        <div class="todo-list" id="todoList">
+            <!-- To-Do items will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Get HTML elements
+        const todoInput = document.getElementById("todoInput");
+        const submitButton = document.getElementById("submitButton");
+        const todoList = document.getElementById("todoList");
+
+        // Enable/Disable Submit Button based on input
+        todoInput.addEventListener("input", function() {
+            if (todoInput.value.trim().length > 0) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+
+        // Function to add to-do item
+        function addTodo() {
+            const todoText = todoInput.value.trim();
+            if (todoText.length > 0) {
+                const todoItem = document.createElement("div");
+                todoItem.classList.add("todo-item");
+                todoItem.textContent = todoText;
+                todoList.appendChild(todoItem);
+                
+                // Clear the input field after submission
+                todoInput.value = "";
+                submitButton.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
