@@ -1,0 +1,185 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.link {
+    text-decoration: none;
+    color: #1a0dab;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 20px;
+    padding: 5px 0;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Main Section */
+main {
+    text-align: center;
+}
+
+/* Google Logo */
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #202124;
+}
+
+/* Search Bar */
+.search-bar input {
+    width: 60%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"] {
+    background-color: #f8f8f8;
+    color: #5f6368;
+}
+
+button[type="submit"]:hover {
+    background-color: #f1f3f4;
+    transform: scale(1.05);
+}
+
+button[name="btnI"] {
+    background-color: #f8f8f8;
+    color: #5f6368;
+}
+
+button[name="btnI"]:hover {
+    background-color: #f1f3f4;
+    transform: scale(1.05);
+}
+
+.blue-button {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+}
+
+.blue-button:hover {
+    background-color: #185abc;
+    transform: scale(1.05);
+}
+
+/* Fields in Advanced Search */
+.field {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+    color: #202124;
+}
+
+input {
+    width: 60%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 1px solid #dcdcdc;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #202124;
+}
+
+/* Footer (optional, for extra spacing) */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #5f6368;
+}
+
+footer a {
+    text-decoration: none;
+    color: #1a0dab;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .search-bar input {
+        width: 80%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .field input {
+        width: 80%;
+    }
+}
